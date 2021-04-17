@@ -15,6 +15,7 @@ namespace webapplication.Models
         public  DbSet<User> User { get; set; }
         public  DbSet<City> City { get; set; }
         public  DbSet<Location> Location { get; set; }
+        public DbSet<PMLTask> PMLTask { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
