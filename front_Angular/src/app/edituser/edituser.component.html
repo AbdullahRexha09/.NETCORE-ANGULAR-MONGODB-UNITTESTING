@@ -1,0 +1,15 @@
+<form class="form-signin" #updateForm="ngForm" (ngSubmit)="updateUser(updateForm)">
+    <div class="container-fluid">
+      <h2 class="form-signin-heading">User Info</h2>
+      <br/>
+      <label for="username" class="sr-only" required>Name</label>
+      Name:<input type="text" id="firstname" name="firstname" [ngModel]="userObject?.firstName" class="form-control" placeholder="First Name" required autofocus>
+      <br/>
+      LastName:<input type="text" id="lastname" name="lastname" [ngModel]="userObject?.lastName" class="form-control" placeholder="Last Name" required autofocus>
+      <br/>
+      <label for="password" class="sr-only">Status</label>
+      Status:<input type="text" id="password" name="Status" [ngModel]="userObject?.status" class="form-control" placeholder="Status" required>
+      <br/>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+    </div>
+  </form>

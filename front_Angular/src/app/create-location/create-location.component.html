@@ -1,0 +1,30 @@
+<form #saveForm="ngForm" (ngSubmit)="submit(saveForm)">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Name</label>
+      <input type="text" class="form-control" id="exampleInputEmail1"  name="name" ngModel aria-describedby="emailHelp" placeholder="Name">
+      <small id="emailHelp" class="form-text text-muted"></small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Address</label>
+      <input type="text" class="form-control" name="address" ngModel id="exampleInputPassword1" placeholder="Address">
+    </div>
+    <div class="form-group">
+    <label for="exampleInputPassword1">City</label>
+    <select class="form-control form-control" #mySelect (change)="selectedCity(mySelect.value)">
+        <option></option>
+        <option value="{{city.id}}" *ngFor="let city of cities" >{{city.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Longitude</label>
+        <input type="text"  class="form-control" id="exampleInputPassword1" name="longitude" ngModel [value]="longitude" [disabled]="longitude" placeholder="Longitude">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Latitude</label>
+        <input type="text" class="form-control" [value]="latitude" id="exampleInputPassword1" name="latitude" ngModel [disabled]="latitude" placeholder="Latitude">
+    </div>
+    <div class="form-group form-check">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="cancel" style="margin-left: 5px;"class="btn btn-dark" (click)="cancel()">Cancel</button>
+  </form>
