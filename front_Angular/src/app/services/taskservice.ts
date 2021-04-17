@@ -11,6 +11,14 @@ export class TaskService {
     constructor(
         private http: HttpClient,private router: Router,private jwtHelper:JwtHelperService) {
     }
+    getTaskById(id) : any {
+      const token: string = localStorage.getItem("jwt");
+      var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
+      return this.http.get(moduleConfig.baserUrl + "api/task/getTaskById?id="+id, {
+          headers: headers_object,
+        });
+         
+    }
     getAllTasks() : any {
         const token: string = localStorage.getItem("jwt");
         var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
@@ -37,6 +45,13 @@ export class TaskService {
         const token: string = localStorage.getItem("jwt");
         var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
         return this.http.post(moduleConfig.baserUrl + "api/task/chngstatus?id="+id, {
+            headers: headers_object,
+          });
+      }
+      update(model,id):any{
+        const token: string = localStorage.getItem("jwt");
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
+        return this.http.put(moduleConfig.baserUrl + "api/task/updateTask?id="+id,model, {
             headers: headers_object,
           });
       }

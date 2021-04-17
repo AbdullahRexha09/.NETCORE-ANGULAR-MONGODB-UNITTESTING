@@ -1,1 +1,30 @@
-<p>edittask works!</p>
+<div class="row">
+    <div class="col-sm-5">
+  <form #editForm="ngForm" (ngSubmit)="submit(editForm,taskId)">
+    <h3>Edit Task</h3>
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" id="name"  name="title" ngModel aria-describedby="emailHelp" [ngModel]="task?.title" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <input type="text" class="form-control" name="description" ngModel id="address"[ngModel]="task?.description" placeholder="Description">
+      </div>
+      <div class="form-group">
+        <label>DueDate</label>
+        <input type="date" class="form-control" name="duedate" ngModel id="address"[ngModel]="task?.dueDate | date:'yyyy-MM-dd'" placeholder="duedate">
+      </div>
+      <div class="form-group">
+        <label>Completed</label>
+        <input type="checkbox" class="form-control" name="completed" ngModel id="address"[ngModel]="task?.completed" placeholder="completed">
+      </div>
+
+
+
+      <div class="form-group form-check">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="cancel" style="margin-left: 5px;"class="btn btn-dark" (click)="cancel()">Cancel</button>
+    </form>
+    </div>
+  </div>

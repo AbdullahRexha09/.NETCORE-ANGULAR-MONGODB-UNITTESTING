@@ -54,10 +54,21 @@ namespace webapplication.Services
             List<PMLTask> tasks = _db.PMLTask.ToList();
             return tasks;
         }
-
-        public PMLTask Update(PMLTask task, Guid id)
+        public PMLTask GetById(Guid id) 
         {
-            throw new NotImplementedException();
+            PMLTask pMLTask = _db.PMLTask.First(x => x.Id == id);
+            return pMLTask;
+        }
+
+        public bool Update(PMLTask task)
+        {
+            var item = _db.PMLTask.Update(task);
+            if (item.State == EntityState.Modified)
+            {
+                _db.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 }

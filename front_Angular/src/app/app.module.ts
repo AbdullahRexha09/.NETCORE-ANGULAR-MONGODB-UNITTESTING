@@ -53,7 +53,8 @@ export function tokenGetter() {
       { path:'editlocation',component:EditLocationComponent},
       { path:'edituser',component:EdituserComponent},
       { path:'task',component:TaskComponent},
-      { path:'createtask',component:CreateTaskComponent}
+      { path:'createtask',component:CreateTaskComponent},
+      { path:'edittask',component:EdittaskComponent}
     ]),
     AgmCoreModule.forRoot({
       apiKey : 'AIzaSyDoXcfFQNt1k86YaNEpvpPN4zEsSaiQxOo'

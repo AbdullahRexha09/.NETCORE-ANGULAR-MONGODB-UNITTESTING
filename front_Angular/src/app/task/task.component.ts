@@ -30,6 +30,11 @@ export class TaskComponent implements OnInit {
   txt = "You pressed Cancel!";
 }
   }
+  edit(id){
+    sessionStorage.setItem("taskid",id);
+    this.router.navigate(["edittask"]);
+
+  }
   back(){
     this.router.navigate([""]);
   }
@@ -37,10 +42,27 @@ export class TaskComponent implements OnInit {
     this.taskService.getAllTasks().subscribe((data)=>{
       this.task = data;
     });
+    sessionStorage.setItem('taskid','');
   }
   handleClick(id){
     this.taskService.changeStatus(id).subscribe(()=>this.onLoad());
-    debugger;
+  }
+  formatDate(date)
+  {
+    if(!date)
+      return '';
+  
+      var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+  
+    if (month.length < 2) 
+      month = '0' + month;
+    if (day.length < 2) 
+      day = '0' + day;
+  
+    return [day, month, year].join('-');
   }
 
 }

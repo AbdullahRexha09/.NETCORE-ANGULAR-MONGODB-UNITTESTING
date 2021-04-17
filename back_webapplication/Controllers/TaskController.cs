@@ -35,7 +35,7 @@ namespace webapplication.Controllers
                 return Ok(isAdded);
             }
             return BadRequest("Row wasn't Added");
-    }
+        }
         [HttpPost]
         [Route("chngstatus")]
         //[Authorize(Roles = "User")]
@@ -49,11 +49,36 @@ namespace webapplication.Controllers
             return BadRequest("Row wasn't Changed");
         }
         [HttpGet]
+        [Route("getTaskById")]
+        public IActionResult GetTaskById(Guid id)
+        {
+            PMLTask task = taskService.GetById(id);
+            return Ok(task);
+        }
+        [HttpGet]
         [Route("getAllTasks")]
-        public IActionResult GetAllTasks() 
+        public IActionResult GetAllTasks()
         {
             List<PMLTask> tasks = taskService.GetAllTasks();
             return Ok(tasks);
+        }
+        [HttpPut]
+        [Route("updateTask")]
+        public IActionResult UpdateTask([FromBody]TaskModel taskModel, Guid id)
+        {
+            PMLTask pMLTask = taskService.GetById(id);
+            {
+                pMLTask.Title = taskModel.Title;
+                pMLTask.Description = taskModel.Description;
+                pMLTask.DueDate = DateTime.Parse(taskModel.DueDate);
+                pMLTask.Completed = taskModel.Completed;
+            }
+            bool isUpdated = taskService.Update(pMLTask);
+            if (isUpdated)
+            {
+                return Ok(isUpdated);
+            }
+            return BadRequest("Row wasn't Updated");
         }
         [HttpDelete]
         [Route("delete")]
