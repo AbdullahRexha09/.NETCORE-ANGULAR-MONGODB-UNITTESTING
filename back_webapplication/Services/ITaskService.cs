@@ -9,8 +9,10 @@ namespace webapplication.Services
     public interface ITaskService
     {
         public bool Create(PMLTask task);
+        public List<PMLTask> GetAllTasks();
         public PMLTask Update(PMLTask task, Guid id);
-        public PMLTask Delete(Guid id);
+        public bool Delete(Guid id);
+        public bool ChangeStatus(Guid id);
 
     }
 }

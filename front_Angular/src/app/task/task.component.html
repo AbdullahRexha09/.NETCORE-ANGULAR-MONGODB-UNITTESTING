@@ -1,0 +1,33 @@
+<button class="bi bi-arrow-left-circle" (click)="back()">Back</button>
+<table class="table table-striped" style="margin: 30px;">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Title</th>
+    <th scope="col">Description</th>
+    <th scope="col">DueDate</th>
+    <th scope="col">Completed</th>
+    <th scope="col">Parent</th>
+    <th scope="col">Create Sub-Task</th>
+    <th scope="col">Delete</th>
+    <th scope="col">Edit</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let task of task; index as i">
+    <th scope="row">{{ i + 1 }}</th>
+    <td>
+      {{ task.title }}
+    </td>
+    <td>{{ task.description}}</td>
+    <td>{{ task.dueDate}}</td>
+    <td><input type="checkbox" [ngModel]="task?.completed" (click)="handleClick(task.id)"></td>
+    <td>No</td>
+    <td><button class="btn btn-primary" (click)="subTask(task.id)">Sub-Task</button></td>
+    <td><button class="btn btn-info" (click)="edit(task.id)">Edit</button></td>
+    <td><button class="btn btn-danger" (click)="delete(task.id)">Delete</button></td>
+  </tr>
+  </tbody>
+</table>
+<button style="float: right;margin-right: 50px;" class="btn btn-success" (click)="create()">Create</button><h3 style="float: right;margin-right: 50px;">Create Task -></h3>

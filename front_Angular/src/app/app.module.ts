@@ -17,6 +17,9 @@ import { CreateLocationComponent } from './create-location/create-location.compo
 import { EditLocationComponent } from './edit-location/edit-location.component';
 import { AgmCoreModule } from '@agm/core';
 import { EdituserComponent } from './edituser/edituser.component';
+import { TaskComponent } from './task/task.component';
+import { CreateTaskComponent } from './create-task/create-task.component';
+import { EdittaskComponent } from './edittask/edittask.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -32,6 +35,9 @@ export function tokenGetter() {
     CreateLocationComponent,
     EditLocationComponent,
     EdituserComponent,
+    TaskComponent,
+    CreateTaskComponent,
+    EdittaskComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +51,9 @@ export function tokenGetter() {
       { path:'location',component:LocationComponent},
       { path:'createlocation',component:CreateLocationComponent},
       { path:'editlocation',component:EditLocationComponent},
-      { path:'edituser',component:EdituserComponent}
+      { path:'edituser',component:EdituserComponent},
+      { path:'task',component:TaskComponent},
+      { path:'createtask',component:CreateTaskComponent}
     ]),
     AgmCoreModule.forRoot({
       apiKey : 'AIzaSyDoXcfFQNt1k86YaNEpvpPN4zEsSaiQxOo'

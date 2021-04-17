@@ -36,5 +36,35 @@ namespace webapplication.Controllers
             }
             return BadRequest("Row wasn't Added");
     }
-}
+        [HttpPost]
+        [Route("chngstatus")]
+        //[Authorize(Roles = "User")]
+        public IActionResult ChangeStatus(Guid id)
+        {
+            bool isChanged = taskService.ChangeStatus(id);
+            if (isChanged)
+            {
+                return Ok(isChanged);
+            }
+            return BadRequest("Row wasn't Changed");
+        }
+        [HttpGet]
+        [Route("getAllTasks")]
+        public IActionResult GetAllTasks() 
+        {
+            List<PMLTask> tasks = taskService.GetAllTasks();
+            return Ok(tasks);
+        }
+        [HttpDelete]
+        [Route("delete")]
+        public IActionResult DeleteById(Guid id)
+        {
+            bool isDeleted = taskService.Delete(id);
+            if (isDeleted)
+            {
+                return Ok(isDeleted);
+            }
+            return BadRequest("Row wasn't Deleted");
+        }
+    }
 }
