@@ -36,7 +36,6 @@ export class TaskComponent implements OnInit {
 
   }
   getParent(task){
-    debugger;
     if(task.parentTask){
           return task.parentTask.title;
     }

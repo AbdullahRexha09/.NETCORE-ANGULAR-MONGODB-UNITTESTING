@@ -36,6 +36,15 @@ namespace webapplication.Controllers
             }
             return BadRequest("Row wasn't Added");
         }
+
+        [HttpGet]
+        [Route("getListById")]
+        //[Authorize(Roles = "User")]
+        public IActionResult GetListById(Guid id)
+        {
+            PMLList pMLList = listService.GetById(id);
+            return Ok(pMLList);
+        }
         [HttpGet]
         [Route("getAllLists")]
         //[Authorize(Roles = "User")]
@@ -43,6 +52,35 @@ namespace webapplication.Controllers
         {
             List<PMLList> lists = listService.GetAllLists();
             return Ok(lists);
+        }
+        [HttpPut]
+        [Route("updateList")]
+        [Authorize(Roles = "User")]
+        public IActionResult UpdateList([FromBody]ListModel listModel, Guid id)
+        {
+            PMLList pMLList = listService.GetById(id);
+            {
+                pMLList.Name = listModel.Name;
+                pMLList.Description = listModel.Description;
+            }
+            bool isUpdated = listService.Update(pMLList);
+            if (isUpdated)
+            {
+                return Ok(isUpdated);
+            }
+            return BadRequest("Row wasn't Updated");
+        }
+        [HttpDelete]
+        [Route("delete")]
+        //[Authorize(Roles = "User")]
+        public IActionResult Delete(Guid id)
+        {
+            bool isDeleted = listService.Delete(id);
+            if (isDeleted)
+            {
+                return Ok(isDeleted);
+            }
+            return BadRequest("Row wasn't Deleted");
         }
 
     }

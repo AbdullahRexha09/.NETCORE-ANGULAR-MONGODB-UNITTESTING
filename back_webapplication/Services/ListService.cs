@@ -27,7 +27,14 @@ namespace webapplication.Services
 
         public bool Delete(Guid id)
         {
-            throw new NotImplementedException();
+            PMLList pMLList = _db.PMLList.FirstOrDefault(x => x.Id == id);
+            var item = _db.PMLList.Remove(pMLList);
+            if (item.State == EntityState.Deleted)
+            {
+                _db.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public List<PMLList> GetAllLists()
@@ -40,12 +47,19 @@ namespace webapplication.Services
 
         public PMLList GetById(Guid? id)
         {
-            throw new NotImplementedException();
+            PMLList pMLList = _db.PMLList.First(x => x.Id == id);
+            return pMLList;
         }
 
         public bool Update(PMLList pMLList)
         {
-            throw new NotImplementedException();
+            var item = _db.PMLList.Update(pMLList);
+            if (item.State == EntityState.Modified)
+            {
+                _db.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 }

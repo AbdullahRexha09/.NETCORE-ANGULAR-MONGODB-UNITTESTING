@@ -31,6 +31,7 @@
     "datatables.net": "^1.10.22",
     "datatables.net-dt": "^1.10.22",
     "font-awesome": "^4.7.0",
+    "glyphicons": "^0.2.0",
     "jquery": "^3.5.1",
     "ngx-bootstrap": "^6.1.0",
     "rxjs": "~6.4.0",

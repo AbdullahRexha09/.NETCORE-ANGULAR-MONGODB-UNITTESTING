@@ -18,4 +18,32 @@ export class ListService {
             headers: headers_object,
           });
       }
+        getAllLists():any{
+        const token: string = localStorage.getItem("jwt");
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
+        return this.http.get(moduleConfig.baserUrl + "api/list/getAllLists", {
+            headers: headers_object,
+          });
+      }
+         getListById(id):any{
+        const token: string = localStorage.getItem("jwt");
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
+        return this.http.get(moduleConfig.baserUrl + "api/list/getListById?id="+id, {
+            headers: headers_object,
+          });
+      }
+      update(model,id):any{
+        const token: string = localStorage.getItem("jwt");
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
+        return this.http.put(moduleConfig.baserUrl + "api/list/updateList?id="+id,model, {
+            headers: headers_object,
+          });
+      }
+        delete(id):any{
+        const token: string = localStorage.getItem("jwt");
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
+        return this.http.delete(moduleConfig.baserUrl + "api/list/delete?id="+id, {
+            headers: headers_object,
+          });
+      }
     }

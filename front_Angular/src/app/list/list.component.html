@@ -1,16 +1,17 @@
-<button class="bi bi-arrow-left-circle" (click)="back()">Back</button>
+<button class="btn btn-outline-secondary" (click)="back()"> <b>Back</b> </button>
+
 <table class="table table-striped" style="margin: 30px;">
   <thead>
   <tr>
     <th scope="col">#</th>
-    <th scope="col">Title</th>
+    <th scope="col">Name</th>
     <th scope="col">Description</th>
-    <th scope="col">DueDate</th>
+    <!-- <th scope="col">DueDate</th>
     <th scope="col">Completed</th>
     <th scope="col">Parent</th>
-    <th scope="col">Create Sub-list</th>
-    <th scope="col">Delete</th>
+    <th scope="col">Create Sub-list</th> -->
     <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
 
   </tr>
   </thead>
@@ -18,13 +19,13 @@
   <tr *ngFor="let list of list; index as i">
     <th scope="row">{{ i + 1 }}</th>
     <td>
-      {{ list.title }}
+      {{ list.name }}
     </td>
     <td>{{ list.description}}</td>
-    <td>{{ formatDate(list.dueDate)}}</td>
+    <!-- <td>{{ formatDate(list.dueDate)}}</td>
     <td><input type="checkbox" [ngModel]="list?.completed" (click)="handleClick(list.id)"></td>
     <td>{{getParent(list)}}</td>
-    <td><button *ngIf="!list.parent" class="btn btn-primary" (click)="sublist(list.id)">Sub-list</button></td>
+    <td><button *ngIf="!list.parent" class="btn btn-primary" (click)="sublist(list.id)">Sub-list</button></td> -->
     <td><button class="btn btn-info" (click)="edit(list.id)">Edit</button></td>
     <td><button class="btn btn-danger" (click)="delete(list.id)">Delete</button></td>
   </tr>
