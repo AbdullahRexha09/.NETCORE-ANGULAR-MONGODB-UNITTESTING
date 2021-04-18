@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webapplication", "webapplication.csproj", "{BF58ED79-F3F8-4B03-AF19-C56D6A789D79}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMLAssignment.Tests", "..\PMLAssignment.Tests\PMLAssignment.Tests.csproj", "{B3B45F2D-6B64-4B6A-A2B2-078D4A635730}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BF58ED79-F3F8-4B03-AF19-C56D6A789D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF58ED79-F3F8-4B03-AF19-C56D6A789D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF58ED79-F3F8-4B03-AF19-C56D6A789D79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3B45F2D-6B64-4B6A-A2B2-078D4A635730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3B45F2D-6B64-4B6A-A2B2-078D4A635730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3B45F2D-6B64-4B6A-A2B2-078D4A635730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3B45F2D-6B64-4B6A-A2B2-078D4A635730}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

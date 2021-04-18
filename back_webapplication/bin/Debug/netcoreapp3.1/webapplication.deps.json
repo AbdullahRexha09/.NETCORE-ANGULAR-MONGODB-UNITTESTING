@@ -10,7 +10,7 @@
       "NETCOREAPP",
       "NETCOREAPP3_1"
     ],
-    "languageVersion": "8.0",
+    "languageVersion": "",
     "platform": "",
     "allowUnsafe": false,
     "warningsAsErrors": false,
@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "webapplication/1.0.0": {
         "dependencies": {
+          "FakeItEasy": "7.0.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.9",
           "Microsoft.EntityFrameworkCore": "3.1.9",
           "Microsoft.EntityFrameworkCore.Design": "3.1.9",
@@ -327,6 +328,20 @@
         },
         "compile": {
           "lib/netstandard1.5/Castle.Core.dll": {}
+        }
+      },
+      "FakeItEasy/7.0.1": {
+        "dependencies": {
+          "Castle.Core": "4.4.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/FakeItEasy.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/FakeItEasy.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.9": {
@@ -3405,6 +3420,13 @@
       "sha512": "sha512-b5rRL5zeaau1y/5hIbI+6mGw3cwun16YjkHZnV9RRT5UyUIFsgLmNXJ0YnIN9p8Hw7K7AbG1q1UclQVU3DinAQ==",
       "path": "castle.core/4.4.0",
       "hashPath": "castle.core.4.4.0.nupkg.sha512"
+    },
+    "FakeItEasy/7.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Sky2WqHWd6FbwvqWlZ7hdaln4bb56bveH+QYiqeKehdejrtb+Y/eYsVCYQ9m7KI6iJW/OT7NnuZrqTSYg0VAgA==",
+      "path": "fakeiteasy/7.0.1",
+      "hashPath": "fakeiteasy.7.0.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.9": {
       "type": "package",
