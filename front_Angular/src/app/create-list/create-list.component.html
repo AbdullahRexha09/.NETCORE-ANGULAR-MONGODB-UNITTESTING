@@ -1,0 +1,17 @@
+<form #saveForm="ngForm" (ngSubmit)="submit(saveForm)">
+    <h2 class="form-signin-heading">Create List</h2>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Name</label>
+      <input type="text" class="form-control" id="exampleInputEmail1"  name="Name" ngModel aria-describedby="emailHelp" placeholder="Name" required>
+      <small id="emailHelp" class="form-text text-muted"></small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Description</label>
+      <input type="text" class="form-control" name="Description" ngModel id="exampleInputPassword1" placeholder="Description" required>
+    </div>
+
+    <div class="form-group form-check">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="cancel" style="margin-left: 5px;"class="btn btn-dark" (click)="cancel()">Cancel</button>
+  </form>

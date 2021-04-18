@@ -37,6 +37,7 @@ namespace webapplication
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ITaskService, TaskService>();
+            services.AddScoped<IListService, ListService>();
             services.AddCors(options =>
             {
                 options.AddPolicy("EnableCORS", builder =>

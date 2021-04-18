@@ -14,6 +14,7 @@ namespace webapplication.Models
         }
         public  DbSet<User> User { get; set; }
         public DbSet<PMLTask> PMLTask { get; set; }
+        public DbSet<PMLList> PMLList { get; set; }
 
      
     }

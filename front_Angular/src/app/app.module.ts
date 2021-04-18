@@ -18,6 +18,8 @@ import { TaskComponent } from './task/task.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { EdittaskComponent } from './edittask/edittask.component';
 import { CreateSubtaskComponent } from './create-subtask/create-subtask.component';
+import { ListComponent } from './list/list.component';
+import { CreateListComponent } from './create-list/create-list.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -34,6 +36,8 @@ export function tokenGetter() {
     CreateTaskComponent,
     EdittaskComponent,
     CreateSubtaskComponent,
+    ListComponent,
+    CreateListComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,9 @@ export function tokenGetter() {
       { path:'task',component:TaskComponent},
       { path:'createtask',component:CreateTaskComponent},
       { path:'edittask',component:EdittaskComponent},
-      { path:'subtask',component:CreateSubtaskComponent}
+      { path:'subtask',component:CreateSubtaskComponent},
+      { path:'list',component: ListComponent},
+      { path:'createlist',component:CreateListComponent}
     ]),
     AgmCoreModule.forRoot({
       apiKey : 'AIzaSyDoXcfFQNt1k86YaNEpvpPN4zEsSaiQxOo'
