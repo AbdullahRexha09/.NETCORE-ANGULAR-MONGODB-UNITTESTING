@@ -10,9 +10,11 @@ namespace webapplication.Services
     public class ListService : IListService
     {
         private readonly AppDbContext _db;
-        public ListService(AppDbContext db)
+        private readonly ITaskService taskService;
+        public ListService(AppDbContext db, ITaskService taskService)
         {
             this._db = db;
+            this.taskService = taskService;
         }
         public bool Create(PMLList pMLList)
         {
@@ -40,7 +42,10 @@ namespace webapplication.Services
         public List<PMLList> GetAllLists()
         {
             List<PMLList> lists = _db.PMLList.ToList();
-
+            foreach (var list in lists) 
+            {
+                list.PMLTask = taskService.GetByListId(list.Id);
+            }
             return lists;
         }
 

@@ -10,6 +10,7 @@ namespace webapplication.Services
     public class TaskService : ITaskService
     {
         private readonly AppDbContext _db;
+
         public TaskService(AppDbContext db)
         {
             this._db = db;
@@ -76,6 +77,12 @@ namespace webapplication.Services
                 return true;
             }
             return false;
+        }
+
+        public List<PMLTask> GetByListId(Guid id)
+        {
+            List<PMLTask> taskList = _db.PMLTask.Where(x => x.ListId == id).ToList();
+            return taskList;
         }
     }
 }

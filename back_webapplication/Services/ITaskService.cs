@@ -14,6 +14,7 @@ namespace webapplication.Services
         public bool Update(PMLTask task);
         public bool Delete(Guid id);
         public bool ChangeStatus(Guid id);
+        public List<PMLTask> GetByListId(Guid id);
 
     }
 }

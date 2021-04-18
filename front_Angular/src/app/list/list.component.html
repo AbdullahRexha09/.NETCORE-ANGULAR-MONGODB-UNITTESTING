@@ -6,6 +6,7 @@
     <th scope="col">#</th>
     <th scope="col">Name</th>
     <th scope="col">Description</th>
+    <th scope="col"> Tasks</th>
     <!-- <th scope="col">DueDate</th>
     <th scope="col">Completed</th>
     <th scope="col">Parent</th>
@@ -26,6 +27,12 @@
     <td><input type="checkbox" [ngModel]="list?.completed" (click)="handleClick(list.id)"></td>
     <td>{{getParent(list)}}</td>
     <td><button *ngIf="!list.parent" class="btn btn-primary" (click)="sublist(list.id)">Sub-list</button></td> -->
+    <td>    
+    <select class="form-control form-control" name="cityId" #mySelect  [ngModel]="it?.pmlTask.id">
+        <option></option>
+        <option value="{{it.pmlTask?.id}}" *ngFor="let it of list?.pmlTask" >{{it?.title}}</option>
+      </select>
+    </td>
     <td><button class="btn btn-info" (click)="edit(list.id)">Edit</button></td>
     <td><button class="btn btn-danger" (click)="delete(list.id)">Delete</button></td>
   </tr>

@@ -17,6 +17,8 @@ namespace webapplication.Models
         public string Name { get; set; }
         [Column("description")]
         public string Description { get; set; }
+        [NotMapped]
+        public List<PMLTask> PMLTask { get; set; }
 
                
     }

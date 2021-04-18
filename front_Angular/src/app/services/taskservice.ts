@@ -19,6 +19,14 @@ export class TaskService {
         });
          
     }
+    getTaskByListId(id) : any {
+      const token: string = localStorage.getItem("jwt");
+      var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
+      return this.http.get(moduleConfig.baserUrl + "api/task/getByListId?id="+id, {
+          headers: headers_object,
+        });
+         
+    }
     getAllTasks() : any {
         const token: string = localStorage.getItem("jwt");
         var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ListService} from '../services/listservice'
+import { TaskService} from '../services/taskservice'
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -8,8 +10,10 @@ import { ListService} from '../services/listservice'
 })
 export class ListComponent implements OnInit {
   list:any;
-  constructor(private router:Router, private listService: ListService) { }
-
+  assignedTasks:any;
+  constructor(private router:Router, private listService: ListService, 
+  private taskService: TaskService) { }
+//getTaskByListId
   ngOnInit(): void {
     this.onLoad();
   }

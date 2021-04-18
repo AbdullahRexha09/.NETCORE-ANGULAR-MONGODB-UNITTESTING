@@ -67,6 +67,14 @@ namespace webapplication.Controllers
             List<PMLTask> tasks = taskService.GetAllTasks();
             return Ok(tasks);
         }
+        [HttpGet]
+        [Route("getByListId")]
+        [Authorize(Roles = "User")]
+        public IActionResult GetByListId(Guid id)
+        {
+            List<PMLTask> tasks = taskService.GetByListId(id);
+            return Ok(tasks);
+        }
         [HttpPut]
         [Route("updateTask")]
         [Authorize(Roles = "User")]
