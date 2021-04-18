@@ -63,7 +63,7 @@ namespace webapplication.Services
         }
         public PMLTask GetById(Guid? id) 
         {
-            PMLTask pMLTask = _db.PMLTask.First(x => x.Id == id);
+            PMLTask pMLTask = _db.PMLTask.FirstOrDefault(x => x.Id == id);
             return pMLTask;
         }
 

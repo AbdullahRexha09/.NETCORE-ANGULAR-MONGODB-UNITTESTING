@@ -23,6 +23,8 @@ namespace webapplication.Models
         public bool Completed { get; set; }
         [Column("parent")]
         public Guid? Parent { get; set; }
+        [Column("listid")]
+        public Guid ListId { get; set; }
         [NotMapped]
         public  PMLTask ParentTask { get; set; }
     }

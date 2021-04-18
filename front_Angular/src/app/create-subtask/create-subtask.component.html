@@ -1,5 +1,5 @@
 <form #saveForm="ngForm" (ngSubmit)="submit(saveForm)">
-    <h2 class="form-signin-heading">Create Task</h2>
+    <h2 class="form-signin-heading">Create Sub-Task</h2>
     <div class="form-group">
       <label for="exampleInputEmail1">Title</label>
       <input type="text" class="form-control" id="exampleInputEmail1"  name="title" ngModel aria-describedby="emailHelp" placeholder="Title" required>
@@ -13,6 +13,14 @@
         <label for="exampleInputPassword1">DueDate</label>
         <input type="date"  class="form-control" id="exampleInputPassword1" name="duedate" ngModel placeholder="DueDate" required>
     </div>
+        <div class="form-group" >
+    <label>List</label>
+    <select class="form-control form-control"  id="listid" ngModel name="listId" #mySelect  [ngModel]="taskObj?.listId" >
+        <option></option>
+        <option value="{{taskObj?.listId}}" *ngFor="let list of lists" >{{list.name}}</option>
+      </select>
+    </div>
+  
     <div class="form-group form-check">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>

@@ -13,6 +13,13 @@
         <label for="exampleInputPassword1">DueDate</label>
         <input type="date"  class="form-control" id="exampleInputPassword1" name="duedate" ngModel placeholder="DueDate" required>
     </div>
+     <div class="form-group">
+    <label>List</label>
+    <select class="form-control form-control" id="listid" ngModel name="listId" #mySelect >
+        <option></option>
+        <option value="{{list.id}}" *ngFor="let list of lists" >{{list.name}}</option>
+      </select>
+    </div>
     <div class="form-group form-check">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
