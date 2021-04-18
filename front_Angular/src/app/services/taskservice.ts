@@ -41,10 +41,17 @@ export class TaskService {
             headers: headers_object,
           });
       }
+    //   changeStatus(id):any{
+    // const token: string = localStorage.getItem("jwt");
+    //     var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
+    //     return this.http.post(moduleConfig.baserUrl + "api/task/chngstatus?id="+id, {
+    //         headers: headers_object,
+    //       });
+    //   }
       changeStatus(id):any{
         const token: string = localStorage.getItem("jwt");
         var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
-        return this.http.post(moduleConfig.baserUrl + "api/task/chngstatus?id="+id, {
+        return this.http.put(moduleConfig.baserUrl + "api/task/chngstatus?id="+id, {
             headers: headers_object,
           });
       }

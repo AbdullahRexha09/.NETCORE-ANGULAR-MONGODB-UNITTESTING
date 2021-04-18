@@ -37,9 +37,9 @@ namespace webapplication.Controllers
             }
             return BadRequest("Row wasn't Added");
         }
-        [HttpPost]
+        [HttpPut]
         [Route("chngstatus")]
-        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "User")]
         public IActionResult ChangeStatus(Guid id)
         {
             bool isChanged = taskService.ChangeStatus(id);
