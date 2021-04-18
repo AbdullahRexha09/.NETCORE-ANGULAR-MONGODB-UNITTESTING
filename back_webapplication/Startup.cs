@@ -35,7 +35,6 @@ namespace webapplication
             services.AddDbContext<AppDbContext>(opt => opt.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("AppContection")));
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ITokenService, TokenService>();
-            services.AddScoped<ILocationService, LocationService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ITaskService, TaskService>();
             services.AddCors(options =>

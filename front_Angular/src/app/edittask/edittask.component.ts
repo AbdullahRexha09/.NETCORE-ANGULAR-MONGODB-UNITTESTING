@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { debug } from 'console';
 import { TaskService } from '../services/taskservice';
 
 @Component({

@@ -3,10 +3,26 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace webapplication.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "PMLTask",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(nullable: false),
+                    title = table.Column<string>(maxLength: 200, nullable: true),
+                    description = table.Column<string>(nullable: true),
+                    duedate = table.Column<DateTime>(nullable: false),
+                    completed = table.Column<bool>(nullable: false),
+                    parent = table.Column<Guid>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PMLTask", x => x.id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "User",
                 columns: table => new
@@ -17,7 +33,8 @@ namespace webapplication.Migrations
                     email = table.Column<string>(nullable: false),
                     password = table.Column<string>(nullable: false),
                     refreshtokenexpirytime = table.Column<DateTime>(nullable: false),
-                    role = table.Column<string>(nullable: true)
+                    role = table.Column<string>(nullable: true),
+                    status = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -27,6 +44,9 @@ namespace webapplication.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "PMLTask");
+
             migrationBuilder.DropTable(
                 name: "User");
         }

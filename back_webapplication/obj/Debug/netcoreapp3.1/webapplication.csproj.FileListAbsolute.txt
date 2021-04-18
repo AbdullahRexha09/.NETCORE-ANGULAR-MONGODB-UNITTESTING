@@ -773,7 +773,6 @@ C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\bin\Debug\netcoreapp
 C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\obj\Debug\netcoreapp3.1\webapplication.csprojAssemblyReference.cache
 C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\obj\Debug\netcoreapp3.1\webapplication.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\obj\Debug\netcoreapp3.1\webapplication.AssemblyInfoInputs.cache
 C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\obj\Debug\netcoreapp3.1\webapplication.AssemblyInfo.cs
@@ -788,3 +787,6 @@ C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\bin\Debug\netcoreapp
 C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\bin\Debug\netcoreapp3.1\webapplication.runtimeconfig.dev.json
 C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\bin\Debug\netcoreapp3.1\webapplication.dll
 C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\bin\Debug\netcoreapp3.1\webapplication.pdb
+C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\obj\Debug\netcoreapp3.1\webapplication.csprojAssemblyReference.cache
+C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\obj\Debug\netcoreapp3.1\webapplication.csproj.CoreCompileInputs.cache
+C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\obj\Debug\netcoreapp3.1\webapplication.genruntimeconfig.cache

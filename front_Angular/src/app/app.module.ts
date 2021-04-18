@@ -12,9 +12,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
-import { LocationComponent } from './location/location.component';
-import { CreateLocationComponent } from './create-location/create-location.component';
-import { EditLocationComponent } from './edit-location/edit-location.component';
 import { AgmCoreModule } from '@agm/core';
 import { EdituserComponent } from './edituser/edituser.component';
 import { TaskComponent } from './task/task.component';
@@ -31,9 +28,6 @@ export function tokenGetter() {
     LoginComponent,
     AppComponent,
     RegisterComponent,
-    LocationComponent,
-    CreateLocationComponent,
-    EditLocationComponent,
     EdituserComponent,
     TaskComponent,
     CreateTaskComponent,
@@ -48,9 +42,6 @@ export function tokenGetter() {
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register',component:RegisterComponent},
-      { path:'location',component:LocationComponent},
-      { path:'createlocation',component:CreateLocationComponent},
-      { path:'editlocation',component:EditLocationComponent},
       { path:'edituser',component:EdituserComponent},
       { path:'task',component:TaskComponent},
       { path:'createtask',component:CreateTaskComponent},

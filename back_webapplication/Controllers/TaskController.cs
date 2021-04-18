@@ -20,7 +20,7 @@ namespace webapplication.Controllers
         }
         [HttpPost]
         [Route("createTask")]
-        //[Authorize(Roles = "User")]
+        [Authorize(Roles = "User")]
         public IActionResult CreateTask([FromBody] TaskModel taskModel)
         {
             PMLTask pMLTask = new PMLTask
@@ -38,7 +38,7 @@ namespace webapplication.Controllers
         }
         [HttpPost]
         [Route("chngstatus")]
-        //[Authorize(Roles = "User")]
+        [Authorize(Roles = "User")]
         public IActionResult ChangeStatus(Guid id)
         {
             bool isChanged = taskService.ChangeStatus(id);
@@ -50,6 +50,7 @@ namespace webapplication.Controllers
         }
         [HttpGet]
         [Route("getTaskById")]
+        [Authorize(Roles = "User")]
         public IActionResult GetTaskById(Guid id)
         {
             PMLTask task = taskService.GetById(id);
@@ -57,6 +58,7 @@ namespace webapplication.Controllers
         }
         [HttpGet]
         [Route("getAllTasks")]
+        [Authorize(Roles = "User")]
         public IActionResult GetAllTasks()
         {
             List<PMLTask> tasks = taskService.GetAllTasks();
@@ -64,6 +66,7 @@ namespace webapplication.Controllers
         }
         [HttpPut]
         [Route("updateTask")]
+        [Authorize(Roles = "User")]
         public IActionResult UpdateTask([FromBody]TaskModel taskModel, Guid id)
         {
             PMLTask pMLTask = taskService.GetById(id);
@@ -82,6 +85,7 @@ namespace webapplication.Controllers
         }
         [HttpDelete]
         [Route("delete")]
+        [Authorize(Roles = "User")]
         public IActionResult DeleteById(Guid id)
         {
             bool isDeleted = taskService.Delete(id);

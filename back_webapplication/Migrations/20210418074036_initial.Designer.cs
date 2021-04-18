@@ -10,8 +10,8 @@ using webapplication.Models;
 namespace webapplication.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20201224190553_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20210418074036_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,39 @@ namespace webapplication.Migrations
                 .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("webapplication.Models.PMLTask", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Completed")
+                        .HasColumnName("completed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Description")
+                        .HasColumnName("description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DueDate")
+                        .HasColumnName("duedate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("Parent")
+                        .HasColumnName("parent")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Title")
+                        .HasColumnName("title")
+                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PMLTask");
+                });
 
             modelBuilder.Entity("webapplication.Models.User", b =>
                 {
@@ -54,6 +87,10 @@ namespace webapplication.Migrations
 
                     b.Property<string>("Role")
                         .HasColumnName("role")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnName("status")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
