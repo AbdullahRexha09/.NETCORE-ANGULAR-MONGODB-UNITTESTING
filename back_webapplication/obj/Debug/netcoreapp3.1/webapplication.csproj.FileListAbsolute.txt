@@ -788,5 +788,3 @@ C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\bin\Debug\netcoreapp
 C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\bin\Debug\netcoreapp3.1\webapplication.dll
 C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\bin\Debug\netcoreapp3.1\webapplication.pdb
 C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\obj\Debug\netcoreapp3.1\webapplication.csprojAssemblyReference.cache
-C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\obj\Debug\netcoreapp3.1\webapplication.csproj.CoreCompileInputs.cache
-C:\Users\AltimaPC\Desktop\PMLAssignment\back_webapplication\obj\Debug\netcoreapp3.1\webapplication.genruntimeconfig.cache

@@ -35,6 +35,19 @@ export class TaskComponent implements OnInit {
     this.router.navigate(["edittask"]);
 
   }
+  getParent(task){
+    debugger;
+    if(task.parentTask){
+          return task.parentTask.title;
+    }
+    else{
+      return 'No Parent';
+    }
+  }
+  subTask(id){
+    sessionStorage.setItem("taskid",id);
+    this.router.navigate(["subtask"]);
+  }
   back(){
     this.router.navigate([""]);
   }

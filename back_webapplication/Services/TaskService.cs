@@ -52,9 +52,16 @@ namespace webapplication.Services
         public List<PMLTask> GetAllTasks()
         {
             List<PMLTask> tasks = _db.PMLTask.ToList();
+            foreach (var item in tasks) 
+            {
+                if (item.Parent != null) 
+                {
+                    item.ParentTask = GetById(item.Parent);
+                }
+            }
             return tasks;
         }
-        public PMLTask GetById(Guid id) 
+        public PMLTask GetById(Guid? id) 
         {
             PMLTask pMLTask = _db.PMLTask.First(x => x.Id == id);
             return pMLTask;

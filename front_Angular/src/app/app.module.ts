@@ -17,6 +17,7 @@ import { EdituserComponent } from './edituser/edituser.component';
 import { TaskComponent } from './task/task.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { EdittaskComponent } from './edittask/edittask.component';
+import { CreateSubtaskComponent } from './create-subtask/create-subtask.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -32,6 +33,7 @@ export function tokenGetter() {
     TaskComponent,
     CreateTaskComponent,
     EdittaskComponent,
+    CreateSubtaskComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ export function tokenGetter() {
       { path:'edituser',component:EdituserComponent},
       { path:'task',component:TaskComponent},
       { path:'createtask',component:CreateTaskComponent},
-      { path:'edittask',component:EdittaskComponent}
+      { path:'edittask',component:EdittaskComponent},
+      { path:'subtask',component:CreateSubtaskComponent}
     ]),
     AgmCoreModule.forRoot({
       apiKey : 'AIzaSyDoXcfFQNt1k86YaNEpvpPN4zEsSaiQxOo'

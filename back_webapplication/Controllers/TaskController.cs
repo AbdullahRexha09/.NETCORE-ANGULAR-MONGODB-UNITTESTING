@@ -27,7 +27,8 @@ namespace webapplication.Controllers
             {
                 Title = taskModel.Title,
                 Description = taskModel.Description,
-                DueDate = DateTime.Parse(taskModel.DueDate)
+                DueDate = DateTime.Parse(taskModel.DueDate),
+                Parent = taskModel.Parent
             };
             bool isAdded = taskService.Create(pMLTask);
             if (isAdded)
