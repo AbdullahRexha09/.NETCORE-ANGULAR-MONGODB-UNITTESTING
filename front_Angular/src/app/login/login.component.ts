@@ -14,6 +14,7 @@ export class LoginComponent {
   constructor(private router: Router, private http: HttpClient,private loginSerivce:LoginService) { }
    login(form: NgForm)  {
      
+    debugger;
     const credentials = JSON.stringify(form.value);
     this.loginSerivce.login(credentials).subscribe(response => {
       const token = (<any>response).token;
