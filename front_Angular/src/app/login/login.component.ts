@@ -1,20 +1,27 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
 import { LoginService } from '../services/loginservice';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   invalidLogin: boolean;
 
-  constructor(private router: Router, private http: HttpClient,private loginSerivce:LoginService) { }
+  constructor(private jwtHelper: JwtHelperService,private router: Router, private http: HttpClient,private loginSerivce:LoginService) { }
+  ngOnInit(): void {
+    const token: string = localStorage.getItem("jwt");
+    if ((token && !this.jwtHelper.isTokenExpired(token))) {
+      this.router.navigate(['/']);
+      }
+  }
    login(form: NgForm)  {
      
-    debugger;
     const credentials = JSON.stringify(form.value);
     this.loginSerivce.login(credentials).subscribe(response => {
       const token = (<any>response).token;
