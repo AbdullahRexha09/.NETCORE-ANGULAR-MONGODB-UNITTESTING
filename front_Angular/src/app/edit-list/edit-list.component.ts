@@ -18,7 +18,6 @@ export class EditListComponent implements OnInit {
     })
   }
   submit(model,id){
-    debugger;
     this.updatedList = model.form.value;
     this.listService.update(this.updatedList,id).subscribe(()=> this.cancel());
   }
