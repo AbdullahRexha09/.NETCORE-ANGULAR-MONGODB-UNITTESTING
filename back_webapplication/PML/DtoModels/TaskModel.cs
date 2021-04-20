@@ -11,7 +11,7 @@ namespace webapplication.Models
         public string Description { get; set; }
         public string DueDate { get; set; }
         public bool Completed { get; set; }
-        public Guid? Parent { get; set; }
-        public Guid ListId { get; set; }
+        public string Parent { get; set; }
+        public string ListId { get; set; }
     }
 }

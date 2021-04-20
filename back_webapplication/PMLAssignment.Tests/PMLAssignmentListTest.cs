@@ -12,7 +12,7 @@ namespace PMLAssignment.Tests
 {
     public class PMLAssignmentListTest
     {
-        private Guid listId = Guid.Parse("8538562C-6BDD-4621-6BB7-08D90272C43F");
+        private string listId = "8538562C-6BDD-4621-6BB7-08D90272C43F";
         [Fact]
         public void GetLists_Returns_OK()
         {

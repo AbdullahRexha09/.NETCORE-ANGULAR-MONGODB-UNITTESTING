@@ -10,6 +10,6 @@ namespace webapplication.Services
     {
         public User GetUserByEmail(string email);
         public bool UpdateUser(User user);
-        public User GetById(Guid id);
+        public User GetById(string id);
     }
 }

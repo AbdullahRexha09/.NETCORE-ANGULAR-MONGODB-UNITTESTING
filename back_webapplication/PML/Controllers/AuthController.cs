@@ -52,7 +52,7 @@ namespace webapplication.Controllers
 
                 item.RefreshTokenExpiryTime = DateTime.Now.AddMinutes(Utilities.ExpireMinutes);
 
-                bool isUpdated = authService.UpdateUser(item);
+                //bool isUpdated = authService.UpdateUser(item);
                 return Ok(new
                 {
                     Token = accessToken,

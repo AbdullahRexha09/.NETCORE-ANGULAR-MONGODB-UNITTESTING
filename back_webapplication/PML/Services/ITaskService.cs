@@ -10,11 +10,11 @@ namespace webapplication.Services
     {
         public bool Create(PMLTask task);
         public List<PMLTask> GetAllTasks();
-        public PMLTask GetById(Guid? id);
+        public PMLTask GetById(string id);
         public bool Update(PMLTask task);
-        public bool Delete(Guid id);
-        public bool ChangeStatus(Guid id);
-        public List<PMLTask> GetByListId(Guid id);
+        public bool Delete(string id);
+        public bool ChangeStatus(string id);
+        public List<PMLTask> GetByListId(string id);
 
     }
 }

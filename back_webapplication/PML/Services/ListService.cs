@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,39 +10,31 @@ namespace webapplication.Services
 {
     public class ListService : IListService
     {
-        private readonly AppDbContext _db;
         private readonly ITaskService taskService;
-        public ListService(AppDbContext db, ITaskService taskService)
+        private readonly IMongoCollection<PMLList> _list;
+
+        public ListService(ITaskService taskService, IPMLDatabaseSettings settings)
         {
-            this._db = db;
             this.taskService = taskService;
+            var client = new MongoClient(settings.ConnectionString);
+            var database = client.GetDatabase(settings.DatabaseName);
+            _list = database.GetCollection<PMLList>(settings.PMLLitsCollectionName);
         }
         public bool Create(PMLList pMLList)
         {
-            var item = _db.PMLList.Add(pMLList);
-            if (item.State == EntityState.Added)
-            {
-                _db.SaveChanges();
-                return true;
-            }
-            return false;
+            _list.InsertOne(pMLList);
+            return true;
         }
 
-        public bool Delete(Guid id)
+        public bool Delete(string id)
         {
-            PMLList pMLList = _db.PMLList.FirstOrDefault(x => x.Id == id);
-            var item = _db.PMLList.Remove(pMLList);
-            if (item.State == EntityState.Deleted)
-            {
-                _db.SaveChanges();
-                return true;
-            }
-            return false;
+            _list.DeleteOne(x => x.Id == id);
+            return true;
         }
 
         public List<PMLList> GetAllLists()
         {
-            List<PMLList> lists = _db.PMLList.ToList();
+            List<PMLList> lists = _list.Find(_ => true).ToList();
             foreach (var list in lists) 
             {
                 list.PMLTask = taskService.GetByListId(list.Id);
@@ -50,21 +43,21 @@ namespace webapplication.Services
         }
 
 
-        public PMLList GetById(Guid? id)
+        public PMLList GetById(string id)
         {
-            PMLList pMLList = _db.PMLList.First(x => x.Id == id);
+            PMLList pMLList = _list.Find(x => x.Id == id).FirstOrDefault();
             return pMLList;
         }
 
         public bool Update(PMLList pMLList)
         {
-            var item = _db.PMLList.Update(pMLList);
-            if (item.State == EntityState.Modified)
-            {
-                _db.SaveChanges();
-                return true;
-            }
-            return false;
+            var filter = Builders<PMLList>.Filter.Eq("Id", pMLList.Id);
+            var update = Builders<PMLList>.Update
+                .Set("Name", pMLList.Name)
+                .Set("Description", pMLList.Description);
+
+            _list.UpdateOne(filter, update);
+            return true;
         }
     }
 }

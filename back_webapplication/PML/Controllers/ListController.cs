@@ -40,7 +40,7 @@ namespace webapplication.Controllers
         [HttpGet]
         [Route("getListById")]
         //[Authorize(Roles = "User")]
-        public IActionResult GetListById(Guid id)
+        public IActionResult GetListById(string id)
         {
             PMLList pMLList = listService.GetById(id);
             return Ok(pMLList);
@@ -56,7 +56,7 @@ namespace webapplication.Controllers
         [HttpPut]
         [Route("updateList")]
         [Authorize(Roles = "User")]
-        public IActionResult UpdateList([FromBody]ListModel listModel, Guid id)
+        public IActionResult UpdateList([FromBody]ListModel listModel, string id)
         {
             PMLList pMLList = listService.GetById(id);
             {
@@ -73,7 +73,7 @@ namespace webapplication.Controllers
         [HttpDelete]
         [Route("delete")]
         //[Authorize(Roles = "User")]
-        public IActionResult Delete(Guid id)
+        public IActionResult Delete(string id)
         {
             bool isDeleted = listService.Delete(id);
             if (isDeleted)

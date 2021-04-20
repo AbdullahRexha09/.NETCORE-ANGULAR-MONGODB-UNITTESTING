@@ -10,9 +10,9 @@ namespace webapplication.Services
     {
         public bool Create(PMLList pMLList);
         public List<PMLList> GetAllLists();
-        public PMLList GetById(Guid? id);
+        public PMLList GetById(string id);
         public bool Update(PMLList pMLList);
-        public bool Delete(Guid id);
+        public bool Delete(string id);
 
 
     }

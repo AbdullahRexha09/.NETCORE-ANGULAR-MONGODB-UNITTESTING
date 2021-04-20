@@ -20,7 +20,7 @@ namespace webapplication.Controllers
         }
         [HttpPost]
         [Route("createTask")]
-        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "User")]
         public IActionResult CreateTask([FromBody] TaskModel taskModel)
         {
             PMLTask pMLTask = new PMLTask
@@ -42,7 +42,7 @@ namespace webapplication.Controllers
         [HttpPut]
         [Route("chngstatus")]
         //[Authorize(Roles = "User")]
-        public IActionResult ChangeStatus(Guid id)
+        public IActionResult ChangeStatus(string id)
         {
             bool isChanged = taskService.ChangeStatus(id);
             if (isChanged)
@@ -54,14 +54,14 @@ namespace webapplication.Controllers
         [HttpGet]
         [Route("getTaskById")]
         [Authorize(Roles = "User")]
-        public IActionResult GetTaskById(Guid id)
+        public IActionResult GetTaskById(string id)
         {
             PMLTask task = taskService.GetById(id);
             return Ok(task);
         }
         [HttpGet]
         [Route("getAllTasks")]
-        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "User")]
         public IActionResult GetAllTasks()
         {
             List<PMLTask> tasks = taskService.GetAllTasks();
@@ -70,7 +70,7 @@ namespace webapplication.Controllers
         [HttpGet]
         [Route("getByListId")]
         [Authorize(Roles = "User")]
-        public IActionResult GetByListId(Guid id)
+        public IActionResult GetByListId(string id)
         {
             List<PMLTask> tasks = taskService.GetByListId(id);
             return Ok(tasks);
@@ -78,7 +78,7 @@ namespace webapplication.Controllers
         [HttpPut]
         [Route("updateTask")]
         [Authorize(Roles = "User")]
-        public IActionResult UpdateTask([FromBody]TaskModel taskModel, Guid id)
+        public IActionResult UpdateTask([FromBody]TaskModel taskModel, string id)
         {
             PMLTask pMLTask = taskService.GetById(id);
             {
@@ -97,7 +97,7 @@ namespace webapplication.Controllers
         [HttpDelete]
         [Route("delete")]
         [Authorize(Roles = "User")]
-        public IActionResult DeleteById(Guid id)
+        public IActionResult DeleteById(string id)
         {
             bool isDeleted = taskService.Delete(id);
             if (isDeleted)

@@ -10,7 +10,7 @@ namespace PMLAssignment.Tests
 {
     public class PMLAssignmentTaskTests
     {
-        private Guid taskId = Guid.Parse("8538562C-6BDD-4621-6BB7-08D90272C43F");
+        private string taskId = "8538562C-6BDD-4621-6BB7-08D90272C43F";
         [Fact]
         public void GetTasks_Returns_OK()
         {

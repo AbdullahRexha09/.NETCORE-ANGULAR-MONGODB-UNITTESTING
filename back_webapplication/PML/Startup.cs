@@ -17,6 +17,7 @@ using Microsoft.IdentityModel.Tokens;
 using webapplication.Models;
 using webapplication.Services;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Options;
 
 namespace webapplication
 {
@@ -33,11 +34,20 @@ namespace webapplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(opt => opt.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("AppContection")));
+            services.Configure<PMLDatabaseSettings>(
+        Configuration.GetSection(nameof(PMLDatabaseSettings)));
+
+
+      //      services.AddSingleton<IPMLDatabaseSettings>(provider =>
+      //provider.GetRequiredService<IOptions<PMLDatabaseSettings>>().Value);
+            services.AddScoped<IPMLDatabaseSettings, PMLDatabaseSettings>();
+
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ITaskService, TaskService>();
             services.AddScoped<IListService, ListService>();
+
             services.AddCors(options =>
             {
                 options.AddPolicy("EnableCORS", builder =>

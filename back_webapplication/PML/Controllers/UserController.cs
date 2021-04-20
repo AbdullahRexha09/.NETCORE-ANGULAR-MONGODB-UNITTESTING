@@ -35,7 +35,7 @@ namespace webapplication.Controllers
         [HttpPut]
         [Authorize(Roles = "User")]
         [Route("updateUser")]
-        public IActionResult UpdateUser([FromBody]UserModel userModel,Guid id) 
+        public IActionResult UpdateUser([FromBody]UserModel userModel,string id) 
         {
             //TODO -- AUTOMAPPER <- Message From ME!
             User user = userService.GetById(id);

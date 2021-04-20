@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,16 +11,17 @@ namespace webapplication.Models
 {
     public class PMLList
     {
-        [Key]
-        [Column("id")]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-        [Column("name")]
+        [BsonId]
+        public string Id { get; set; }
         public string Name { get; set; }
-        [Column("description")]
         public string Description { get; set; }
         [NotMapped]
         public List<PMLTask> PMLTask { get; set; }
+
+        public PMLList() 
+        {
+            Id = Guid.NewGuid().ToString();
+        }
 
                
     }
