@@ -15,7 +15,6 @@ export class CreateListComponent implements OnInit {
 
   }
   submit(model){
-    debugger;
     this.list = model.form.value;
      if(this.list){
       if(this.list.Name && this.list.Description){

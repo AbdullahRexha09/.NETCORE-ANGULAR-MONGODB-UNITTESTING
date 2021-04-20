@@ -29,7 +29,6 @@ export class ListComponent implements OnInit {
   }
    onLoad(){
     this.listService.getAllLists().subscribe((data)=>{
-      debugger;
       this.list = data;
     });
     sessionStorage.setItem('listid','');

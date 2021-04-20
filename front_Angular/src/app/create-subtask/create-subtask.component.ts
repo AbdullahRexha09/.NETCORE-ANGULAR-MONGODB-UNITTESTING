@@ -11,6 +11,7 @@ import { ListService } from '../services/listservice';
 export class CreateSubtaskComponent implements OnInit {
    task: any;
    taskObj:any;
+   list: any;
    lists: any;
   constructor(private taskService: TaskService, private listService: ListService ,private router: Router) { }
 
@@ -21,6 +22,7 @@ export class CreateSubtaskComponent implements OnInit {
     this.taskService.getTaskById(sessionStorage.getItem('taskid'))
     .subscribe((data)=> {
       this.taskObj = data
+      this.list = this.lists.filter((item)=> item.id == this.taskObj.listId);
       })
   }
   submit(model){
